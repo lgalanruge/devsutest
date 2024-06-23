@@ -8,8 +8,8 @@ import java.util.Map;
 
 public interface ICustomerReadUseCase {
 
-    public List<Customer> getByParams (Map<String, String > params) ;
+     List<Customer> getByParams (Map<String, String > params) ;
 
-    public Customer getById(String id ) ;
+     Customer getById(String id ) ;
 
 }

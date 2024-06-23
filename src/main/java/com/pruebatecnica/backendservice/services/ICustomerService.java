@@ -8,10 +8,10 @@ import java.util.Map;
 
 public interface ICustomerService {
 
-    public List<Customer> save(List<Customer> account) ;
+     List<Customer> save(List<Customer> account) ;
 
-    public Customer getById(String id) ;
+     Customer getById(String id) ;
 
-    public List<Customer> getByParams(Map<String, String> params) ;
+     List<Customer> getByParams(Map<String, String> params) ;
 
 }

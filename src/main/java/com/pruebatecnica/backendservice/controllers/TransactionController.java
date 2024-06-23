@@ -1,6 +1,6 @@
 package com.pruebatecnica.backendservice.controllers;
 
-import com.pruebatecnica.backendservice.dtos.Customer;
+
 import com.pruebatecnica.backendservice.dtos.Transaction;
 import com.pruebatecnica.backendservice.usecases.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,17 +44,12 @@ public class TransactionController {
     }
 
     @PostMapping("")
-<<<<<<< HEAD
+
     public ResponseEntity<List<Transaction>> post(@RequestBody List<Transaction> transactions){
         try{
             List<Transaction> results = createUseCase.create(transactions);
             return new ResponseEntity<>(results, HttpStatus.CREATED );
-=======
-    public ResponseEntity<Map<String, String>> post(@RequestBody List<Transaction> transactions){
-        try{
-            Map<String, String> result = createUseCase.create(transactions);
-            return new ResponseEntity<>(result, HttpStatus.CREATED );
->>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
+
         }catch (Exception e){
 
         }
@@ -64,12 +59,11 @@ public class TransactionController {
     @PutMapping("")
     public ResponseEntity<Void> put(@RequestBody List<Transaction> transactions){
         try{
-<<<<<<< HEAD
+
             updateUseCase.update(transactions);
-=======
+
             Map<String, String> result = new HashMap<>();
 
->>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
             return new ResponseEntity<>( HttpStatus.ACCEPTED );
         }catch (Exception e){
 

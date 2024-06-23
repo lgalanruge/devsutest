@@ -18,10 +18,7 @@ public class Transaction {
 
     private Double amount ;
 
-<<<<<<< HEAD
-
-=======
     private Account account ;
->>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
+
 
 }

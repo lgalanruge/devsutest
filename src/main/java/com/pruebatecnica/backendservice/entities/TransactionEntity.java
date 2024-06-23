@@ -29,17 +29,13 @@ public class TransactionEntity {
     private BigDecimal amount ;
 
 
-<<<<<<< HEAD
+
     @ManyToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private AccountEntity accountId ;
 
 
 
-=======
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id", referencedColumnName = "id")
-    private AccountEntity accountId ;
 
->>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
+
 }
