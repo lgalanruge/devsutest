@@ -7,6 +7,6 @@ import java.util.Map;
 
 public interface IAccountCreateUseCase {
 
-    public Map<String,String> create(List<Account> accounts) throws IllegalArgumentException ;
+    public List<Account> create(List<Account> accounts) throws IllegalArgumentException ;
 
 }

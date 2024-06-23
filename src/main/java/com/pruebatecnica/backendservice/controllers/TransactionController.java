@@ -44,10 +44,10 @@ public class TransactionController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String, String>> post(@RequestBody List<Transaction> transactions){
+    public ResponseEntity<List<Transaction>> post(@RequestBody List<Transaction> transactions){
         try{
-            Map<String, String> result = createUseCase.create(transactions);
-            return new ResponseEntity<>(result, HttpStatus.CREATED );
+            List<Transaction> results = createUseCase.create(transactions);
+            return new ResponseEntity<>(results, HttpStatus.CREATED );
         }catch (Exception e){
 
         }
@@ -57,8 +57,7 @@ public class TransactionController {
     @PutMapping("")
     public ResponseEntity<Void> put(@RequestBody List<Transaction> transactions){
         try{
-            Map<String, String> result = new HashMap<>();
-
+            updateUseCase.update(transactions);
             return new ResponseEntity<>( HttpStatus.ACCEPTED );
         }catch (Exception e){
 

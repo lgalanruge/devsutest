@@ -8,6 +8,6 @@ import java.util.Map;
 
 public interface ITransactionCreateUseCase {
 
-    public Map<String,String> create(List<Transaction> accounts) throws IllegalArgumentException ;
+    List<Transaction> create(List<Transaction> accounts) throws IllegalArgumentException ;
 
 }

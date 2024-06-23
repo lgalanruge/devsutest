@@ -7,10 +7,10 @@ import java.util.Map;
 
 public interface IAccountService {
 
-    public List<Account>  save(List<Account> account) ;
+    List<Account> save(List<Account> account) ;
 
-    public Account getById(String id) ;
+    Account getById(String id) ;
 
-    public List<Account> getByParams(Map<String, String> params) ;
+    List<Account> getByParams(Map<String, String> params) ;
 
 }

@@ -5,6 +5,7 @@ import com.pruebatecnica.backendservice.usecases.IAccountCreateUseCase;
 import com.pruebatecnica.backendservice.usecases.IAccountReadUseCase;
 import com.pruebatecnica.backendservice.usecases.IAccountUpdateUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,40 +45,49 @@ public class AccountController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String, String>> post(@RequestBody List<Account> accounts){
+    public ResponseEntity<List<Account>> post(@RequestBody List<Account> accounts){
+        String message = "" ;
         try{
-            Map<String, String> result = createUseCase.create(accounts);
+            List<Account> result = createUseCase.create(accounts);
             return new ResponseEntity<>(result, HttpStatus.CREATED );
         }catch (Exception e){
-
+            message = e.getMessage();
         }
-        return new ResponseEntity<>( HttpStatus.NOT_IMPLEMENTED );
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("errorMessage", message);
+        return new ResponseEntity<>(headers,  HttpStatus.NOT_IMPLEMENTED );
     }
 
     @PutMapping("")
     public ResponseEntity<Void> put(@RequestBody List<Account> accounts){
+        String message = "" ;
         try{
-            Map<String, String> result = new HashMap<>();
+
+            updateUseCase.update(accounts);
 
             return new ResponseEntity<>( HttpStatus.ACCEPTED );
         }catch (Exception e){
-
+            message = e.getMessage();
         }
-        return new ResponseEntity<>( HttpStatus.NOT_MODIFIED );
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("errorMessage", message);
+        return new ResponseEntity<>(headers,  HttpStatus.NOT_MODIFIED );
 
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Void> patch(@PathVariable String id , @RequestBody Object body){
+        String message = "" ;
         try{
             Map<String, String> result = new HashMap<>();
 
             return new ResponseEntity<>( HttpStatus.OK );
         }catch (Exception e){
-
+            message = e.getMessage();
         }
-
-        return new ResponseEntity<>( HttpStatus.NOT_MODIFIED );
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("errorMessage", message);
+        return new ResponseEntity<>(headers,  HttpStatus.NOT_MODIFIED );
     }
 
     @DeleteMapping("/{id}")

@@ -29,8 +29,10 @@ public class TransactionEntity {
     private BigDecimal amount ;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private AccountEntity accountId ;
+
+
 
 }

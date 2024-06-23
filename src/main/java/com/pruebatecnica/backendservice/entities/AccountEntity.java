@@ -5,6 +5,7 @@ import com.pruebatecnica.backendservice.utils.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 
 
 @Data
@@ -31,5 +32,12 @@ public class AccountEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "entity_id", referencedColumnName = "id")
     private EntityEntity entityId ;
+
+    @OneToMany(mappedBy = "accountId")
+    private List<TransactionEntity> transactions ;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
+    private CustomerEntity customerId ;
 
 }

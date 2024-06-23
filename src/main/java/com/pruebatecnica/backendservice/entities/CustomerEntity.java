@@ -4,6 +4,8 @@ import com.pruebatecnica.backendservice.utils.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "customer")
@@ -23,6 +25,8 @@ public class CustomerEntity  {
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private PersonEntity personId ;
 
+    @OneToMany(mappedBy = "customerId")
+    private List<AccountEntity> accounts ;
 
 
 }

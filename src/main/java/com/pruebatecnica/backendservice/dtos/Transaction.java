@@ -18,6 +18,6 @@ public class Transaction {
 
     private Double amount ;
 
-    private Account account ;
+
 
 }

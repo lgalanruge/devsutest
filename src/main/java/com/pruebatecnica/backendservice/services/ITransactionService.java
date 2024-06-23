@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface ITransactionService {
 
-    public String save(List<Transaction> account) ;
+    public List<Transaction> save(List<Transaction> transactions) ;
 
     public Transaction getById(String id) ;
 
