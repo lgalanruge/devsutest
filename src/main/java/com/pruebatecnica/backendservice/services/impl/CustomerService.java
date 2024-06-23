@@ -3,19 +3,29 @@ package com.pruebatecnica.backendservice.services.impl;
 
 import com.pruebatecnica.backendservice.dtos.Customer;
 import com.pruebatecnica.backendservice.entities.CustomerEntity;
+<<<<<<< HEAD
 import com.pruebatecnica.backendservice.entities.PersonEntity;
 import com.pruebatecnica.backendservice.repositories.CustomerRepository;
 import com.pruebatecnica.backendservice.repositories.PersonRepository;
 import com.pruebatecnica.backendservice.services.ICustomerService;
 
+=======
+import com.pruebatecnica.backendservice.repositories.CustomerRepository;
+import com.pruebatecnica.backendservice.repositories.PersonRepository;
+import com.pruebatecnica.backendservice.services.ICustomerService;
+import org.modelmapper.ModelMapper;
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+<<<<<<< HEAD
 import java.util.UUID;
 import java.util.function.Function;
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 import java.util.stream.Collectors;
 
 @Service
@@ -27,6 +37,7 @@ public class CustomerService implements ICustomerService {
     @Autowired
     CustomerRepository customerRepository ;
 
+<<<<<<< HEAD
     @Override
     public List<Customer> save(List<Customer> customers) {
 
@@ -62,6 +73,20 @@ public class CustomerService implements ICustomerService {
                 });
 
         return customers;
+=======
+    ModelMapper modelMapper = new ModelMapper();
+
+    @Override
+    public List<Customer> save(List<Customer> customers) {
+        return customerRepository
+                .saveAll(customers
+                        .stream()
+                        .map( value -> modelMapper.map(value, CustomerEntity.class) )
+                        .collect(Collectors.toList()))
+                .stream()
+                .map(value -> modelMapper.map(value, Customer.class))
+                .collect(Collectors.toList());
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
     }
 
     @Override
@@ -69,7 +94,11 @@ public class CustomerService implements ICustomerService {
 
         Optional<CustomerEntity> entity = customerRepository.findById(id);
 
+<<<<<<< HEAD
         return entity.map(customerEntity -> entityToDtoMap.apply(customerEntity)).orElse(null);
+=======
+        return entity.map(customerEntity -> modelMapper.map(customerEntity, Customer.class)).orElse(null);
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 
     }
 
@@ -78,6 +107,7 @@ public class CustomerService implements ICustomerService {
         return customerRepository
                 .findAll()
                 .stream()
+<<<<<<< HEAD
                 .map(value -> entityToDtoMap.apply(value))
                 .collect(Collectors.toList());
     }
@@ -100,4 +130,9 @@ public class CustomerService implements ICustomerService {
         return customer ;
 
     } ;
+=======
+                .map(value -> modelMapper.map(value, Customer.class))
+                .collect(Collectors.toList());
+    }
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 }

@@ -4,7 +4,10 @@ import com.pruebatecnica.backendservice.dtos.Account;
 import com.pruebatecnica.backendservice.dtos.Customer;
 import com.pruebatecnica.backendservice.usecases.*;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.http.HttpHeaders;
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,6 +50,7 @@ public class CustomerController {
     }
 
     @PostMapping("")
+<<<<<<< HEAD
     public ResponseEntity<List<Customer>> post(@RequestBody List<Customer> customers){
         String message = "" ;
         try{
@@ -59,6 +63,16 @@ public class CustomerController {
         headers.set("errorMessage", message);
 
         return new ResponseEntity<>(headers,  HttpStatus.NOT_IMPLEMENTED );
+=======
+    public ResponseEntity<String> post(@RequestBody Customer id){
+        try{
+            String result = createUseCase.create(id);
+            return new ResponseEntity<>(result, HttpStatus.CREATED );
+        }catch (Exception e){
+
+        }
+        return new ResponseEntity<>( HttpStatus.NOT_IMPLEMENTED );
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
     }
 
     @PutMapping("")

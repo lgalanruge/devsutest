@@ -1,5 +1,6 @@
 package com.pruebatecnica.backendservice.usecases.impl;
 
+<<<<<<< HEAD
 import com.pruebatecnica.backendservice.dtos.Account;
 import com.pruebatecnica.backendservice.services.IAccountService;
 import com.pruebatecnica.backendservice.usecases.IAccountUpdateUseCase;
@@ -18,4 +19,12 @@ public class AccountUpdateUseCase implements IAccountUpdateUseCase {
     public List<Account> update(List<Account> accounts) throws IllegalArgumentException {
         return List.of();
     }
+=======
+import com.pruebatecnica.backendservice.usecases.IAccountUpdateUseCase;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AccountUpdateUseCase implements IAccountUpdateUseCase {
+
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 }

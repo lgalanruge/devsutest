@@ -4,8 +4,11 @@ import com.pruebatecnica.backendservice.utils.AccountType;
 import com.pruebatecnica.backendservice.utils.Status;
 import lombok.Data;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 @Data
 public class Account {
 
@@ -22,7 +25,10 @@ public class Account {
 
     private Entity entity ;
 
+<<<<<<< HEAD
     private List<Transaction> transactions ;
 
 
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 }

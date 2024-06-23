@@ -5,7 +5,10 @@ import com.pruebatecnica.backendservice.utils.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 
 
 @Data
@@ -33,6 +36,7 @@ public class AccountEntity {
     @JoinColumn(name = "entity_id", referencedColumnName = "id")
     private EntityEntity entityId ;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "accountId")
     private List<TransactionEntity> transactions ;
 
@@ -40,4 +44,6 @@ public class AccountEntity {
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private CustomerEntity customerId ;
 
+=======
+>>>>>>> 0b2c909d87938cf082da51547a4e358275d7ae49
 }
