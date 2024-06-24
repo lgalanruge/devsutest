@@ -2,6 +2,7 @@ package com.pruebatecnica.backendservice.services.impl;
 
 import com.pruebatecnica.backendservice.dtos.Transaction;
 
+import com.pruebatecnica.backendservice.entities.AccountEntity;
 import com.pruebatecnica.backendservice.entities.TransactionEntity;
 import com.pruebatecnica.backendservice.repositories.TransactionRepository;
 import com.pruebatecnica.backendservice.services.ITransactionService;
@@ -31,7 +32,21 @@ public class TransactionService implements ITransactionService {
         return repository.saveAll(
                 transactions
                         .stream()
-                        .map(value -> modelMapper.map(value, TransactionEntity.class))
+                        .map(value -> {
+                            TransactionEntity ent = new TransactionEntity();
+                            ent.setId(value.getId());
+                            ent.setType(value.getType());
+                            ent.setDate(value.getDate());
+                            ent.setValue(value.getValue());
+                            ent.setAmount(value.getAmount());
+                            AccountEntity account = new AccountEntity();
+                            account.setId(value.getAccount().getId());
+
+                            ent.setAccountId(account);
+
+                            return ent ;
+
+                        })
                         .collect(Collectors.toList())
         )
                 .stream()

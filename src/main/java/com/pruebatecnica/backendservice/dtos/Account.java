@@ -26,5 +26,7 @@ public class Account {
 
     private List<Transaction> transactions ;
 
+    private Customer customerId ;
+
 
 }

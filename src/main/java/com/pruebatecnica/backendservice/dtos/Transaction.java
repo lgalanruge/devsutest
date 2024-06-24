@@ -3,6 +3,8 @@ package com.pruebatecnica.backendservice.dtos;
 import com.pruebatecnica.backendservice.utils.TransactionType;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -10,13 +12,13 @@ public class Transaction {
 
     private String id ;
 
-    private Date date ;
+    private LocalDate date ;
 
     private TransactionType type ;
 
-    private Double value ;
+    private BigDecimal value ;
 
-    private Double amount ;
+    private BigDecimal amount ;
 
     private Account account ;
 

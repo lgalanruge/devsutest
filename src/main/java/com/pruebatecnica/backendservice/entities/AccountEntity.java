@@ -31,7 +31,7 @@ public class AccountEntity {
     private AccountType type ;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "entity_id", referencedColumnName = "id")
     private EntityEntity entityId ;
 

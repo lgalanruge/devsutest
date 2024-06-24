@@ -31,6 +31,10 @@ public class CustomerEntity  {
     @OneToMany(mappedBy = "customerId")
     private List<AccountEntity> accounts ;
 
+    @ManyToOne
+    @JoinColumn(name = "entity_id", referencedColumnName = "id")
+    private EntityEntity entityId ;
+
 
 
 }
