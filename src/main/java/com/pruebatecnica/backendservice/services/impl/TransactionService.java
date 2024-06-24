@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -40,7 +41,7 @@ public class TransactionService implements ITransactionService {
                             ent.setValue(value.getValue());
                             ent.setAmount(value.getAmount());
                             AccountEntity account = new AccountEntity();
-                            account.setId(value.getAccount().getId());
+                            account.setId(value.getAccountId());
 
                             ent.setAccountId(account);
 
@@ -73,4 +74,6 @@ public class TransactionService implements ITransactionService {
                 .collect(Collectors.toList());
 
     }
+
+
 }

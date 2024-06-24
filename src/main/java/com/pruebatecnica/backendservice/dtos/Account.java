@@ -1,10 +1,12 @@
 package com.pruebatecnica.backendservice.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pruebatecnica.backendservice.utils.AccountType;
 import com.pruebatecnica.backendservice.utils.Status;
 import lombok.Data;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -14,7 +16,7 @@ public class Account {
 
     private  Long accountNumber ;
 
-    private Double amount ;
+    private BigDecimal amount ;
 
     private Status status ;
 
@@ -22,11 +24,18 @@ public class Account {
 
     private AccountType type ;
 
+
     private Entity entity ;
+
 
     private List<Transaction> transactions ;
 
-    private Customer customerId ;
+    @JsonIgnore
+    private Customer customer ;
+
+    private String customerId ;
+
+
 
 
 }

@@ -5,15 +5,14 @@ import com.pruebatecnica.backendservice.dtos.Customer;
 import com.pruebatecnica.backendservice.dtos.Entity;
 import com.pruebatecnica.backendservice.entities.CustomerEntity;
 
-import com.pruebatecnica.backendservice.entities.EntityEntity;
+
 import com.pruebatecnica.backendservice.entities.PersonEntity;
-import com.pruebatecnica.backendservice.repositories.*;
 import com.pruebatecnica.backendservice.services.ICustomerService;
 
 
 import com.pruebatecnica.backendservice.repositories.CustomerRepository;
 import com.pruebatecnica.backendservice.repositories.PersonRepository;
-import com.pruebatecnica.backendservice.services.ICustomerService;
+
 import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +36,8 @@ public class CustomerService implements ICustomerService {
     @Autowired
     EntityService entityService ;
 
-    @Autowired
-    private Entity dto ;
+
+
 
     private final ModelMapper modelMapper = new ModelMapper();
 

@@ -4,13 +4,17 @@ import com.pruebatecnica.backendservice.utils.AccountType;
 import com.pruebatecnica.backendservice.utils.Status;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "account")
 public class AccountEntity {
@@ -22,7 +26,7 @@ public class AccountEntity {
     private  Long accountNumber ;
 
     @Column(name = "amount")
-    private Double amount ;
+    private BigDecimal amount ;
 
     @Column(name = "status")
     private Status status ;
@@ -43,5 +47,13 @@ public class AccountEntity {
     @JoinColumn(name = "customer_id", referencedColumnName = "customerId")
     private CustomerEntity customerId ;
 
-
+    @Override
+    public String toString() {
+        return "AccountEntity{" +
+                "id='" + id + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", status=" + status +
+                ", customerId=" + customerId +
+                '}';
+    }
 }

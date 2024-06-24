@@ -1,5 +1,6 @@
 package com.pruebatecnica.backendservice.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pruebatecnica.backendservice.utils.Status;
 import lombok.Data;
 
@@ -15,8 +16,10 @@ public class Customer extends  Person{
 
     private Status status ;
 
+    @JsonIgnore
     private Entity entity ;
 
+    @JsonIgnore
     private List<Account> account ;
 
 

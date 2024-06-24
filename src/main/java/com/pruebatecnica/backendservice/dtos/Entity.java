@@ -2,19 +2,12 @@ package com.pruebatecnica.backendservice.dtos;
 
 import lombok.Data;
 
-import lombok.Getter;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 
-@Component
+@Data
 public class Entity {
 
     // @Value("{entity.value}")
+    String id = "123456";
 
-    private String ID = "123456";
-
-    public String getID() {
-        return ID;
-    }
 }

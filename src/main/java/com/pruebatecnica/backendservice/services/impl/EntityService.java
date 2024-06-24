@@ -17,8 +17,7 @@ public class EntityService {
     private EntityRepository repository ;
 
     @Getter
-    @Autowired
-    private Entity dto ;
+    private final Entity dto = new Entity() ;
 
     private static EntityEntity entity ;
 

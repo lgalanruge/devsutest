@@ -1,5 +1,6 @@
 package com.pruebatecnica.backendservice.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pruebatecnica.backendservice.utils.TransactionType;
 import lombok.Data;
 
@@ -20,7 +21,14 @@ public class Transaction {
 
     private BigDecimal amount ;
 
+    @JsonIgnore
     private Account account ;
+
+    private String accountId ;
+
+
+    @JsonIgnore
+    private Entity entity ;
 
 
 }

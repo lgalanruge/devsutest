@@ -17,7 +17,7 @@ public class AccountUpdateUseCase implements IAccountUpdateUseCase {
 
     @Override
     public List<Account> update(List<Account> accounts) throws IllegalArgumentException {
-        return List.of();
+        return service.save(accounts);
     }
 
 }
