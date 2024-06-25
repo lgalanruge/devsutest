@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "5b075965-4f27-4804-b2c1-ae6071c39368",
+		"name": "DevsuPruebaTecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3792500"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}cuentas/4acc7368-1918-44b0-92df-fcfa2e48e98f"
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"accountNumber\": 1234567890123456,\r\n        \"amount\": 2500.75,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"AHORROS\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    },\r\n    {\r\n        \"accountNumber\": 9876543210987654,\r\n        \"amount\": 500.00,\r\n        \"status\": \"INACTIVE\",\r\n        \"type\": \"CORRIENTE\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    },\r\n    {\r\n        \"accountNumber\": 1122334455667788,\r\n        \"amount\": 750.30,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"AHORROS\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}cuentas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 150.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    },\r\n    {\r\n        \"date\": \"2024-06-21T16:00:00Z\",\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 300.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    },\r\n    {\r\n        \"type\": \"CREDIT\",\r\n        \"value\": 1450.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}movimientos/3bde0664-704f-4465-b6c4-44f2b408e3f7"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {        \r\n        \"passWord\": \"password123\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"John Doe\",\r\n        \"age\": 30,\r\n        \"identificationNumber\": 123456789,\r\n        \"address\": \"123 Main St, Cityville\",\r\n        \"phoneNumber\": \"+1234567890\",\r\n        \"genere\": \"MALE\"\r\n    },\r\n    {       \r\n        \"passWord\": \"password456\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"Jane Smith\",\r\n        \"age\": 25,\r\n        \"identificationNumber\": 987654321,\r\n        \"address\": \"456 Another St, Townsville\",\r\n        \"phoneNumber\": \"+0987654321\",\r\n        \"genere\": \"FEMALE\"\r\n    },\r\n    {       \r\n        \"passWord\": \"password789\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"Alice Johnson\",\r\n        \"age\": 28,\r\n        \"identificationNumber\": 112233445,\r\n        \"address\": \"789 Third St, Villagetown\",\r\n        \"phoneNumber\": \"+1122334455\",\r\n        \"genere\": \"FEMALE\"\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}clientes"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
