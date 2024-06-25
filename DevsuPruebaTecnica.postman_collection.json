@@ -14,7 +14,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{url}}cuentas/4acc7368-1918-44b0-92df-fcfa2e48e98f"
+						"url": "{{url}}cuentas/4432b536-35c4-4c4c-a306-12ecc3dc83f8"
 					},
 					"response": []
 				},
@@ -25,7 +25,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"accountNumber\": 1234567890123456,\r\n        \"amount\": 2500.75,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"AHORROS\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    },\r\n    {\r\n        \"accountNumber\": 9876543210987654,\r\n        \"amount\": 500.00,\r\n        \"status\": \"INACTIVE\",\r\n        \"type\": \"CORRIENTE\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    },\r\n    {\r\n        \"accountNumber\": 1122334455667788,\r\n        \"amount\": 750.30,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"AHORROS\",\r\n        \"customerId\": \"839e7cbb-7228-4bda-8bc8-76acc2a42ddf\"\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"accountNumber\": 1234567890123456,\r\n        \"amount\": 2500.75,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"AHORROS\",\r\n        \"customerId\": \"08af98d0-42c4-4006-a7f0-f9abd7464929\"\r\n    },\r\n    {\r\n        \"accountNumber\": 1122334455667788,\r\n        \"amount\": 750.30,\r\n        \"status\": \"ACTIVE\",\r\n        \"type\": \"CORRIENTE\",\r\n        \"customerId\": \"08af98d0-42c4-4006-a7f0-f9abd7464929\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 150.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    },\r\n    {\r\n        \"date\": \"2024-06-21T16:00:00Z\",\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 300.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    },\r\n    {\r\n        \"type\": \"CREDIT\",\r\n        \"value\": 1450.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4acc7368-1918-44b0-92df-fcfa2e48e98f\"\r\n    }\r\n]",
+							"raw": "[\r\n    {\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 150.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4432b536-35c4-4c4c-a306-12ecc3dc83f8\"\r\n    },\r\n    {\r\n        \"date\": \"2024-06-21T16:00:00Z\",\r\n        \"type\": \"DEBIT\",\r\n        \"value\": 300.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4432b536-35c4-4c4c-a306-12ecc3dc83f8\"\r\n    },\r\n    {\r\n        \"type\": \"CREDIT\",\r\n        \"value\": 1450.00,\r\n        \"amount\": 0,\r\n        \"accountId\": \"4432b536-35c4-4c4c-a306-12ecc3dc83f8\"\r\n    }\r\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -89,7 +89,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\r\n    {        \r\n        \"passWord\": \"password123\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"John Doe\",\r\n        \"age\": 30,\r\n        \"identificationNumber\": 123456789,\r\n        \"address\": \"123 Main St, Cityville\",\r\n        \"phoneNumber\": \"+1234567890\",\r\n        \"genere\": \"MALE\"\r\n    },\r\n    {       \r\n        \"passWord\": \"password456\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"Jane Smith\",\r\n        \"age\": 25,\r\n        \"identificationNumber\": 987654321,\r\n        \"address\": \"456 Another St, Townsville\",\r\n        \"phoneNumber\": \"+0987654321\",\r\n        \"genere\": \"FEMALE\"\r\n    },\r\n    {       \r\n        \"passWord\": \"password789\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"Alice Johnson\",\r\n        \"age\": 28,\r\n        \"identificationNumber\": 112233445,\r\n        \"address\": \"789 Third St, Villagetown\",\r\n        \"phoneNumber\": \"+1122334455\",\r\n        \"genere\": \"FEMALE\"\r\n    }\r\n]\r\n",
+							"raw": "[\r\n    {        \r\n        \"passWord\": \"password123\",\r\n        \"status\": \"ACTIVE\",\r\n        \"name\": \"John Doe\",\r\n        \"age\": 30,\r\n        \"identificationNumber\": 123456789,\r\n        \"address\": \"123 Main St, Cityville\",\r\n        \"phoneNumber\": \"+1234567890\",\r\n        \"genere\": \"MALE\"\r\n    }\r\n]\r\n",
 							"options": {
 								"raw": {
 									"language": "json"

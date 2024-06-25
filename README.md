@@ -40,8 +40,18 @@ docker run -p 8086:8086 backendservices-v1-0
 
 Se implementa 1 prueba unitaria sobre el servicio de creacion de transacciones. Para esto, se utilizo JUNIT 5 y MOckito. 
 
+ 
 
-## Documentacion tecnica
+## Documentacion
+
+## Documentacion Funcional. 
+
+A continuacion se explica el flujo del microservicio: 
+
+1. Se crean los usuarios 
+2. Con base al usuarios creados, se crean las cuentas. 
+3. Con base a las cuentas se crea los movimientos. 
+
 
 ### Documentacion tecnica 
 
@@ -66,6 +76,11 @@ Contiene 6 capas:
 #### /clientes - Metodo HTTP POST 
 
 ##### Request 
+POST /api/clientes HTTP/1.1
+Host: localhost:8086
+Content-Type: application/json
+Content-Length: 297
+
 [
     {        
         "passWord": "password123",
@@ -76,34 +91,35 @@ Contiene 6 capas:
         "address": "123 Main St, Cityville",
         "phoneNumber": "+1234567890",
         "genere": "MALE"
-    },
-    {       
-        "passWord": "password456",
-        "status": "ACTIVE",
-        "name": "Jane Smith",
-        "age": 25,
-        "identificationNumber": 987654321,
-        "address": "456 Another St, Townsville",
-        "phoneNumber": "+0987654321",
-        "genere": "FEMALE"
-    },
-    {       
-        "passWord": "password789",
-        "status": "ACTIVE",
-        "name": "Alice Johnson",
-        "age": 28,
-        "identificationNumber": 112233445,
-        "address": "789 Third St, Villagetown",
-        "phoneNumber": "+1122334455",
-        "genere": "FEMALE"
     }
 ]
 
+
 ##### Response
+
+[
+    {
+        "id": "5babdc29-7272-48d6-9e56-10ab22b01885",
+        "name": "John Doe",
+        "age": 30,
+        "identificationNumber": 123456789,
+        "address": "123 Main St, Cityville",
+        "phoneNumber": "+1234567890",
+        "genere": "MALE",
+        "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929",
+        "passWord": "password123",
+        "status": "ACTIVE"
+    }
+]
 
 #### /cuentas - Metodo HTTP POST 
 
 ##### Request 
+
+POST /api/cuentas HTTP/1.1
+Host: localhost:8086
+Content-Type: application/json
+Content-Length: 416
 
 [
     {
@@ -111,50 +127,147 @@ Contiene 6 capas:
         "amount": 2500.75,
         "status": "ACTIVE",
         "type": "AHORROS",
-        "customerId": "839e7cbb-7228-4bda-8bc8-76acc2a42ddf"
-    },
-    {
-        "accountNumber": 9876543210987654,
-        "amount": 500.00,
-        "status": "INACTIVE",
-        "type": "CORRIENTE",
-        "customerId": "839e7cbb-7228-4bda-8bc8-76acc2a42ddf"
+        "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929"
     },
     {
         "accountNumber": 1122334455667788,
         "amount": 750.30,
         "status": "ACTIVE",
-        "type": "AHORROS",
-        "customerId": "839e7cbb-7228-4bda-8bc8-76acc2a42ddf"
+        "type": "CORRIENTE",
+        "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929"
     }
 ]
 
 ##### Response
+[
+    {
+        "accountNumber": 1234567890123456,
+        "amount": 2500.75,
+        "status": "ACTIVE",
+        "id": "4432b536-35c4-4c4c-a306-12ecc3dc83f8",
+        "type": "AHORROS",
+        "entity": {
+            "id": "123456"
+        },
+        "transactions": null,
+        "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929"
+    },
+    {
+        "accountNumber": 1122334455667788,
+        "amount": 750.30,
+        "status": "ACTIVE",
+        "id": "19271953-a3e9-4f09-836f-2104d84170a0",
+        "type": "CORRIENTE",
+        "entity": {
+            "id": "123456"
+        },
+        "transactions": null,
+        "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929"
+    }
+]
 
 #### /movimientos - Metodo HTTP POST 
 
 ##### Request 
+
+POST /api/movimientos HTTP/1.1
+Host: localhost:8086
+Content-Type: application/json
+Content-Length: 496
 
 [
     {
         "type": "DEBIT",
         "value": 150.00,
         "amount": 0,
-        "accountId": "4acc7368-1918-44b0-92df-fcfa2e48e98f"
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
     },
     {
         "date": "2024-06-21T16:00:00Z",
         "type": "DEBIT",
         "value": 300.00,
         "amount": 0,
-        "accountId": "4acc7368-1918-44b0-92df-fcfa2e48e98f"
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
     },
     {
         "type": "CREDIT",
         "value": 1450.00,
         "amount": 0,
-        "accountId": "4acc7368-1918-44b0-92df-fcfa2e48e98f"
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
     }
 ]
 
 ##### Response
+
+[
+    {
+        "id": "a382997b-4e9f-4a91-86e4-f25b7acff8c1",
+        "date": "2024-06-24",
+        "type": "DEBIT",
+        "value": 150.00,
+        "amount": 2650.75,
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+    },
+    {
+        "id": "1c9fb825-f864-4b3d-9f2c-bea201bb2949",
+        "date": "2024-06-21",
+        "type": "DEBIT",
+        "value": 300.00,
+        "amount": 2950.75,
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+    },
+    {
+        "id": "f75d9d46-4bb2-4404-a99f-1e18a96a54dd",
+        "date": "2024-06-24",
+        "type": "CREDIT",
+        "value": 1450.00,
+        "amount": 1500.75,
+        "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+    }
+]
+
+#### /movimientos - Metodo HTTP GET 
+
+##### Request 
+GET /api/cuentas/4432b536-35c4-4c4c-a306-12ecc3dc83f8 HTTP/1.1
+Host: localhost:8086
+
+##### Response
+
+{
+    "accountNumber": 1234567890123456,
+    "amount": 1500.75,
+    "status": "ACTIVE",
+    "id": "4432b536-35c4-4c4c-a306-12ecc3dc83f8",
+    "type": "AHORROS",
+    "entity": {
+        "id": "123456"
+    },
+    "transactions": [
+        {
+            "id": "a382997b-4e9f-4a91-86e4-f25b7acff8c1",
+            "date": "2024-06-24",
+            "type": "DEBIT",
+            "value": 150.00,
+            "amount": 2650.75,
+            "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+        },
+        {
+            "id": "1c9fb825-f864-4b3d-9f2c-bea201bb2949",
+            "date": "2024-06-21",
+            "type": "DEBIT",
+            "value": 300.00,
+            "amount": 2950.75,
+            "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+        },
+        {
+            "id": "f75d9d46-4bb2-4404-a99f-1e18a96a54dd",
+            "date": "2024-06-24",
+            "type": "CREDIT",
+            "value": 1450.00,
+            "amount": 1500.75,
+            "accountId": "4432b536-35c4-4c4c-a306-12ecc3dc83f8"
+        }
+    ],
+    "customerId": "08af98d0-42c4-4006-a7f0-f9abd7464929"
+}
